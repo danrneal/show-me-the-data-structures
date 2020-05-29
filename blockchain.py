@@ -69,7 +69,8 @@ class Block:
         self.hash = self.calc_hash(self.timestamp, self.data, self.prev_hash)
         self.prev_block = prev_block
 
-    def calc_hash(self, timestamp, data, prev_hash):
+    @staticmethod
+    def calc_hash(timestamp, data, prev_hash):
         """Calculate a SHA-256 hash for a block.
 
         Args:
