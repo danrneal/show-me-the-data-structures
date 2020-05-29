@@ -46,7 +46,7 @@ class MinHeap:
             min_node: The smallest item (located at the root of the node)
         """
         if len(self.heap) == 0:
-            return
+            return None
 
         self.heap[0], self.heap[-1] = self.heap[-1], self.heap[0]
         min_node = self.heap.pop()
