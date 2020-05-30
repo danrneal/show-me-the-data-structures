@@ -6,11 +6,9 @@ I added a method called contains to the linked list class so that I would be abl
 
 ## Time Complexity
 
-The method contains will go through each element once in the worst case making its time complexity O(n).
+The contains method will look up the value in a dict that stores each element so the lookup will have time complexity of O(n).
 
-Finding the union will go through each linked list once which will be O(n+m) while then using the contains method on the returned linked list each iteration with inputs of 1...n+m which will be O(log(n+m)). Taking both of those together the complexity of union will be o((n+m)log(n+m)).
-
-Finding the intersection will go through the first linked list which will be O(n) while then using the contains method each iteration on both the second linked list and the final linked list which will have O(m) and O(log(n+m)) respectively. Taking all parts together the intersection function will have time complexity of O(nm\*log(n+m)).
+Finding the union and intersection will go through each linked list once which will be O(n+m)) for both functions.
 
 ## Space Complexity
 
