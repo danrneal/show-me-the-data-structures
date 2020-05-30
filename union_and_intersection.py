@@ -18,6 +18,7 @@ class LinkedList:
     def __init__(self):
         """Set-up for the linked list."""
         self.head = None
+        self.nodes = {}
 
     def __repr__(self):
         """Represents the linked list node values as regular python list."""
@@ -36,11 +37,13 @@ class LinkedList:
         Args:
             value: The value of the node to insert
         """
+        node = Node(value)
+        self.nodes[value] = node
+
         if self.head is None:
-            self.head = Node(value)
+            self.head = node
             return
 
-        node = Node(value)
         node.next = self.head
         self.head = node
 
@@ -54,15 +57,7 @@ class LinkedList:
             A bool representing whether the value was found in an node in the
                 linked list
         """
-        node = self.head
-        while node is not None:
-
-            if node.value == value:
-                return True
-
-            node = node.next
-
-        return False
+        return value in self.nodes
 
 
 class Node:
