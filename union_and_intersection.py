@@ -18,7 +18,7 @@ class LinkedList:
     def __init__(self):
         """Set-up for the linked list."""
         self.head = None
-        self.nodes = {}
+        self.nodes = set()
 
     def __repr__(self):
         """Represents the linked list node values as regular python list."""
@@ -38,7 +38,7 @@ class LinkedList:
             value: The value of the node to insert
         """
         node = Node(value)
-        self.nodes[value] = node
+        self.nodes.add(value)
 
         if self.head is None:
             self.head = node
@@ -46,18 +46,6 @@ class LinkedList:
 
         node.next = self.head
         self.head = node
-
-    def contains(self, value):
-        """Determine whether a node exists in the linked list or not.
-
-        Args:
-            value: The value to search for in the linked list
-
-        Returns:
-            A bool representing whether the value was found in an node in the
-                linked list
-        """
-        return value in self.nodes
 
 
 class Node:
@@ -137,7 +125,7 @@ def union(llist_a, llist_b):
     for llist in (llist_a, llist_b):
         node = llist.head
         while node is not None:
-            if not union_set.contains(node.value):
+            if node.value not in union_set.nodes:
                 union_set.push(node.value)
 
             node = node.next
@@ -162,7 +150,7 @@ def intersection(llist_a, llist_b):
     node = llist_a.head
     while node is not None:
         value = node.value
-        if llist_b.contains(value) and not intersection_set.contains(value):
+        if value in llist_b.nodes and value not in intersection_set.nodes:
             intersection_set.push(value)
 
         node = node.next

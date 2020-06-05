@@ -2,11 +2,11 @@
 
 ## Design Choices
 
-I added a method called contains to the linked list class so that I would be able to not add duplicates to the final sets.
+I used a set to store what values were already contained in the linked list so that I could avoid adding duplicates to the final sets.
 
 ## Time Complexity
 
-The contains method will look up the value in a dict that stores each element so the lookup will have time complexity of O(n).
+The set containing the values currently in the linked list will look up the value in a set so the lookup will have time complexity of O(n).
 
 Finding the union and intersection will go through each linked list once which will be O(n+m)) for both functions.
 
